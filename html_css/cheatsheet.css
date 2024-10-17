@@ -1,14 +1,44 @@
 #menu { /* id */
-    width: 80%;
-    background-color: burlywood;
-    margin-left: auto; /* align to the middle */
-    margin-right: auto;
-  }
+  width: 80%;
+  background-color: burlywood;
+  margin-left: auto; /* align to the middle */
+  margin-right: auto; /* need display: block to work */
+  background-image: url(https://cdn.freecodecamp.org/curriculum/css-cafe/beans.jpg);
+  display: inline-block; /* make element be inline */
+}
 
-  body {
-    background-image: url(https://cdn.freecodecamp.org/curriculum/css-cafe/beans.jpg);
-  }
+h1, h2 {
+  font-family: Impact, serif; /* fallback if the initial one fails */
+}
 
-  .item p {
-    display: inline-block; /* make p elements be inline */
-  }
+a {
+  color: black;
+}
+
+a:visited {
+  color: green;
+}
+
+a:hover {
+  color: brown;
+}
+
+a:active { /* when clicked */
+  color: white;
+}
+
+.red {
+  background: linear-gradient(90deg, rgb(255, 0, 0), rgb(0, 255, 0), rgb(0, 0, 255)); /* 3 color background */
+  background: linear-gradient(90deg, red 90%, black); /* set the width of the colors */
+  background-color: blue;
+  box-shadow: offsetX offsetY blurRadius color;
+  box-shadow: 0 20px 0 rgba(83, 14, 14, 0.8);
+  border-left: 10px double rgba(0, 0, 0, 0.75); /* width style rgb */
+  border-left: 10px solid rgba(0, 0, 0, 0.75); /* rgba red green blue opacity */
+  margin: 0.5rem; /* The rem unit stands for root em, and is relative to the font size of the html element. */
+}
+
+input[type="submit"] {
+  display: block;
+  width: 60%;
+}
