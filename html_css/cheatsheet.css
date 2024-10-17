@@ -1,0 +1,14 @@
+#menu { /* id */
+    width: 80%;
+    background-color: burlywood;
+    margin-left: auto; /* align to the middle */
+    margin-right: auto;
+  }
+
+  body {
+    background-image: url(https://cdn.freecodecamp.org/curriculum/css-cafe/beans.jpg);
+  }
+
+  .item p {
+    display: inline-block; /* make p elements be inline */
+  }
