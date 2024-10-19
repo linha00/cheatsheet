@@ -1,12 +1,3 @@
-#menu { /* id */
-  width: 80%;
-  background-color: burlywood;
-  margin-left: auto; /* align to the middle */
-  margin-right: auto; /* need display: block to work */
-  background-image: url(https://cdn.freecodecamp.org/curriculum/css-cafe/beans.jpg);
-  display: inline-block; /* make element be inline */
-}
-
 h1, h2 {
   font-family: Impact, serif; /* fallback if the initial one fails */
 }
@@ -27,18 +18,139 @@ a:active { /* when clicked */
   color: white;
 }
 
-.red {
+.background {
+  display: inline-block; /* make element be inline */
+
+  margin-left: auto; /* align to the middle */
+  margin-right: auto; /* need display: block to work */
+  margin: 0.5rem; /* The rem unit stands for root em, and is relative to the font size of the html element. */
+
+  background-image: url(https://cdn.freecodecamp.org/curriculum/css-cafe/beans.jpg);
+  
+  background-color: burlywood;
   background: linear-gradient(90deg, rgb(255, 0, 0), rgb(0, 255, 0), rgb(0, 0, 255)); /* 3 color background */
   background: linear-gradient(90deg, red 90%, black); /* set the width of the colors */
-  background-color: blue;
-  box-shadow: offsetX offsetY blurRadius color;
-  box-shadow: 0 20px 0 rgba(83, 14, 14, 0.8);
+  
   border-left: 10px double rgba(0, 0, 0, 0.75); /* width style rgb */
   border-left: 10px solid rgba(0, 0, 0, 0.75); /* rgba red green blue opacity */
-  margin: 0.5rem; /* The rem unit stands for root em, and is relative to the font size of the html element. */
+  
+  box-shadow: 0 20px 0 rgba(83, 14, 14, 0.8); /* offsetX offsetY blurRadius color */
+}
+
+/* responsive background with max width */
+.gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px 10px;
+  gap: 16px;
+}
+.gallery img {
+  width: 100%;
+  max-width: 350px;
+  height: 300px;
+  object-fit: cover; /* fill the img container while maintaining aspect ratio, resulting in cropping to fit */
 }
 
 input[type="submit"] {
   display: block;
   width: 60%;
+}
+
+.element {
+  overflow: hidden; /* need overflow to work */
+  resize: both; /* allow user to resize the window */
+}
+
+/* box shadow */
+body {
+  background: #f9f9f9;
+}
+box {
+  box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.1),
+    -10px -10px 10px white;
+}
+
+/* display when click with only css */
+.container {
+  display: none;
+}
+#mycheckbox:checked ~ .container {
+  display: block;
+}
+
+.container {
+  width: 800px;
+  max-width: 90%;
+  width: min(800px, 90%); /* the same */
+}
+
+.container {
+  width: 80vw;
+  max-width: 800px;
+  min-width: 400px;
+  width: clamp(400px, 50vw, 800px); /* min preferred max */
+}
+
+/* glass morphism */
+.glass { 
+  backdrop-filter: blur(10px);
+}
+
+/* all button but the first button */
+.button:not(:first-child) {
+  background: red;
+}
+
+/* change background theme */
+body:has(option[value="dark"]:checked) {
+  background: black;
+  color: white;
+}
+
+/* gradient text */
+h1 {
+  background: linear-gradient(to right, red, white);
+  background-clip: text; /* background only at text area */
+  color: transparent;
+}
+
+/* dropdown */
+.dropdown {
+  display: none;
+}
+.dropdown:hover .dropdown {
+  display: block;
+}
+
+/* slider card */
+.wrapper {
+  display: flex;
+  gap: 20px;
+  width: 300px;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory; /* mandatory for all snap or proximity */
+
+}
+.card {
+  scroll-snap-align: center;
+  box-sizing: border-box;
+  padding: 20px 30px;
+  flex-shrink: 0;
+  width: 300px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+  form {
+    flex-direction: column; /* Stack the divs vertically */
+  }
+
+  .left, .right {
+    width: 100%; /* Make sure each div takes full width */
+  }
 }
