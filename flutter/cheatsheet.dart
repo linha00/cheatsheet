@@ -75,6 +75,44 @@ class MyApp extends StatelessWidget {
             ],
           ),
 
+          drawer: Drawer( // side menu
+            child: Column(
+              children: [
+                DrawerHeader(
+                  child: Icon(Icons.favorite),
+                ),
+                ListTile(
+                  leading: Icon(Icons.home),
+                  title: Text(
+                    "H O M E",
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Colors.black,
+                    ),
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.pushNamed(context, '/firstPage');
+                  },
+                ),
+                ListTile(
+                  leading: Icon(Icons.settings),
+                  title: Text(
+                    "S E T T I N G S",
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Colors.black,
+                    ),
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.pushNamed(context, '/secondPage');
+                  },
+                ),
+              ],
+            ),
+          ),
+
           // body
           body: Center(
             // center the widget
@@ -155,6 +193,24 @@ class MyApp extends StatelessWidget {
                     leading: Icon(Icons.favorite),
                     trailing: Icon(Icons.arrow_forward),
                   )),
+
+          bottomNavigationBar: BottomNavigationBar(items: [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+            BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Settings"),
+          ]),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Firstpage(), // the first page that will be shown
+      routes: { // routes
+        '/firstPage': (context) => Firstpage(),
+        '/secondPage': (context) => Secondpage(),
+      },
     );
   }
 }
