@@ -40,8 +40,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("in console");
-
     return MaterialApp(
       debugShowCheckedModeBanner: false, // remove debug banner
 
@@ -199,6 +197,15 @@ class MyApp extends StatelessWidget {
             BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
             BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Settings"),
           ]),
+        
+        routes: {
+          '/firstPage': (context) => const Firstpage(),
+          '/secondPage': (context) => const Secondpage(),
+        }
+
+        /*
+        Navigator.pushNamed(context, '/FirstPage');
+        */
     );
   }
 
@@ -214,3 +221,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
